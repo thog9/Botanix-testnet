@@ -63,6 +63,14 @@ async def run_nftcollection(language: str):
     from scripts.nftcollection import run_nftcollection as nftcollection_run
     await nftcollection_run(language)
 
+async def run_conftnft(language: str):
+    from scripts.conftnft import run_conftnft as conftnft_run
+    await conftnft_run(language)
+
+async def run_domain(language: str):
+    from scripts.domain import run_domain as domain_run
+    await domain_run(language)
+
 async def cmd_exit(language: str):
     print_border(f"Exiting...", Fore.GREEN)
     sys.exit(0)
@@ -73,6 +81,8 @@ SCRIPT_MAP = {
     "deploytoken": run_deploytoken,
     "sendtoken": run_sendtoken,
     "nftcollection": run_nftcollection,
+    "conftnft": run_conftnft,
+    "domain": run_domain,
     "exit": cmd_exit
 }
 
@@ -84,7 +94,9 @@ def get_available_scripts(language):
             {"name": "3. Deploy Token smart-contract | Botanix Testnet", "value": "deploytoken"},
             {"name": "4. Send Token ERC20 ngẫu nhiên hoặc File (addressERC20.txt) | Botanix Testnet", "value": "sendtoken"},
             {"name": "5. Mint NFT Circuit Breaker Ignition | Botanix Testnet [ END ]", "value": "mintnft"},
-            {"name": "6. Exit", "value": "exit"},
+            {"name": "6. Mint ConftApp Friend of coNFT │ Botanix Testnet", "value": "conftnft", "locked": True},
+            {"name": "7. Mint Domain │ Botanix Testnet", "value": "domain", "locked": True},
+            {"name": "8. Exit", "value": "exit"},
             
         ],
         'en': [          
@@ -93,7 +105,9 @@ def get_available_scripts(language):
             {"name": "3. Deploy Token smart-contract | Botanix Testnet", "value": "deploytoken"},
             {"name": "4. Send Token ERC20 Random or File (addressERC20.txt) | Botanix Testnet", "value": "sendtoken"},
             {"name": "5. Mint NFT Circuit Breaker Ignition | Botanix Testnet [ END ]", "value": "mintnft"},
-            {"name": "6. Exit", "value": "exit"},
+            {"name": "6. Mint ConftApp Friend of coNFT │ Botanix Testnet", "value": "conftnft", "locked": True},
+            {"name": "7. Mint Domain │ Botanix Testnet", "value": "domain", "locked": True},
+            {"name": "8. Exit", "value": "exit"},
         ]
     }
     return scripts[language]
